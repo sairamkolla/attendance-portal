@@ -1,0 +1,7 @@
+Functions:
+1. copy all the records in scheduled classes to conducted classes table - on a button - to be called once a day before taking attendance
+2. cancel a particular class - basically make "Conducted" to false for that class in conducted classes table.
+3. add extra classes to conducted classes table (can be called multiple times0
+4. add absentees list to every conducted class (list'll be in the form of strings of roll nos/seats)
+5. parse the textfile/pdf and add to seating arrangements (subject code/id, seatno, student rollno)
+6. 
