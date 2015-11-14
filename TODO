@@ -1,3 +1,4 @@
+TODO:
 Functions:
 1. copy all the records in scheduled classes to conducted classes table - on a button - to be called once a day before taking attendance
 2. cancel a particular class - basically make "Conducted" to false for that class in conducted classes table.
@@ -5,3 +6,17 @@ Functions:
 4. add absentees list to every conducted class (list'll be in the form of strings of roll nos/seats)
 5. parse the textfile/pdf and add to seating arrangements (subject code/id, seatno, student rollno)
 6. 
+
+APIs:
+1. fetch all conducted classes
+2. fetch all rooms
+3. fetch all room plans // later
+4. fetch all courses
+5. make conducted to false/true for a scheduled class which didn't happen at that time - don't allow admin to add absentees list for conducted:false
+6. add a new class to conducted classes table/modify to conducted: true if that class already exists above - input (year, sem, from, to, who, roomid, courseId, )
+7. insert attendance - input (conducted classId, string of all roll nos/seat nos sep by ',', variable to denote whether they are seat no.s/roll no.s)
+8. 
+
+FUNCTION ANGULAR:
+1. in 'add a new class', send request only if the new class doesn't exist or conducted is false for that class.
+2. 
