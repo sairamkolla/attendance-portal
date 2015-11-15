@@ -1,0 +1,72 @@
+<style>
+    p strong{
+        color:#080808;
+    }
+</style>
+<div class="row" ng-controller="EditClassController">
+    <div class="col-lg-12">
+
+        <form class="form-horizontal" name="editClassForm" ng-submit="editClass()" >
+
+            <div class="form-group">
+                <label>Course</label>
+
+                <div class="col-lg-12">
+                    <input class="form-control" type="text" ng-model="class['coursename']" disabled required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Room Number</label>
+
+                <div class="col-lg-12">
+                    <select class="form-control" type="text" ng-model="class['room']" required>
+                        <option ng-repeat="room in roomList" value="{{room['id']}}" >{{room['room']}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Start Time</label>
+
+                <div class="col-lg-12">
+                    <input class="form-control" type="text" ng-model="class['from_time']" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>End Time</label>
+
+                <div class="col-lg-12">
+                    <input class="form-control" type="text" ng-model="class['to_time']" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Instructor</label>
+
+                <div class="col-lg-12">
+                    <input class="form-control" type="text" ng-model="class['instructor']" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label>Absentees List</label>
+                <div class="col-sm-12">
+                    <tags-input ng-model="absentees"></tags-input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label></label>
+
+                <div class="col-lg-12" style="text-align: center">
+                    <input type="submit" class="btn btn-info" style="background-color: yellowgreen"  ng-disabled="!editClassForm.$valid">
+                </div>
+            </div>
+
+        </form>
+
+        <p class="col-lg-12 col-custom1" ng-hide="submitting" style="text-align: justify">
+            {{message}}
+        </p>
+    </div>
+</div>
