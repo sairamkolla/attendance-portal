@@ -111,3 +111,12 @@ def returnAllCourses(request):
         listOfCourses = Course.objects.all()
         serializer = fetchCourses(listOfCourses, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def returnConductedClassDetails(request, pk):
+    """ get Details of a single class """
+
+    conducted_class = Conducted_Classes.objects.get(pk=pk)
+    if request.method == 'GET':
+        serializer = fetchConductedClasses(conducted_class)
+        return Response(serializer.data)
