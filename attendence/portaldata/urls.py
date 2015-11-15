@@ -8,4 +8,5 @@ urlpatterns = patterns('',
                        url(r'^returnAllRooms/$','portaldata.views.returnAllRooms'),
                        url(r'^returnAllCourses/$','portaldata.views.returnAllCourses'),
                        url(r'adddefaultclasses/$','portaldata.views.adddefaultclasses'),
+                       url(r'^returnConductedClassDetails/(?P<pk>[0-9]+)$','portaldata.views.returnConductedClassDetails'),
                        )
