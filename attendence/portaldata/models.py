@@ -13,7 +13,7 @@ class Course(models.Model):
     sem = models.IntegerField(default = 0)
 
     def __unicode__(self):
-        return unicode(self.coursename + ' || ' + str(self.year) + ' || ' + str(self.sem))
+        return unicode(self.coursename)
 
 
 class Student_Courses(models.Model):
