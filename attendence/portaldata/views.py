@@ -4,11 +4,32 @@ from rest_framework.response import Response
 from collections import OrderedDict
 from models import *
 from serializers import *
-
+from models import *
 import json
 
 # Create your views here.
 # api for requirement 5
+
+def adddefaultclasses(request):
+    presentyear = datetime.datetime.now().year
+    temp = datetime.datetime.now().month
+    if temp > 7 :
+        presentsem = 1
+    else:
+        presentsem = 2
+    presentday = datetime.datetime.now().strftime("%A")
+    days = [['Sunday','1'],['Monday','2'],['Tuesday','3'],['Wednesday','4'],['Thursday','5'],['Friday','6'],['Saturday','7']]
+    for day in days :
+        if presentday == day[0]:
+            presentday = int(day[1])
+            break
+    defaultclasses = Schedule.objects.filter(course__year = presentyear,course__sem = presentsem,day = presentday)
+
+    for defaultclass in defaultclasses:
+        newclass = Conducted_Classes(course = defaultclass.course,from_time = defaultclass.from_time, to_time = defaultclass.to_time, date = str(datetime.datetime.now().date()), room = defaultclass.room, instructor = defaultclass.instructor)
+        newclass.save()
+
+        return HttpResponseRedirect()
 @api_view(['POST'])
 def changeconducted(request):
     """
@@ -29,6 +50,10 @@ def changeconducted(request):
 # api for requirement 6
 @api_view(['POST'])
 def addnewclass(request):
+    """
+    :param request: fromtime,totime,who,roomid,courseid
+    :return: message on sucesss
+    """
     postdata = json.loads(request.body)
     #yearno = int(postdata['year'])
     #semno = int(postdata['sem'])
@@ -38,13 +63,18 @@ def addnewclass(request):
     roomkey = ClassRoom.objects.get(id = int(postdata['roomid']))
     coursekey = Course.objects.get(id = int(postdata['courseid']))
 
-    newclass = Conducted_Classes( from_time = fromtime, to_time = totime,room = roomkey , course = coursekey)
+    newclass = Conducted_Classes( from_time = fromtime, to_time = totime,room = roomkey , course = coursekey, instructor = who)
     newclass.save()
 
     return Response({'response':'newclass added sucessfully'})
 # api for requirement 7
 @api_view(['POST'])
 def addattendance(request):
+    """
+
+    :param request: classid,rollnumberstring
+    :return: message on success
+    """
     postdata = json.loads(request.body)
     classkey = Conducted_Classes.objects.get(id = int(postdata['classid']))
     rollnumberstring = str(postdata['rollnumbers'])
