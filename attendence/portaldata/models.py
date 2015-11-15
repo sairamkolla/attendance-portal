@@ -31,7 +31,7 @@ class Schedule(models.Model):
     course = models.ForeignKey(Course)
     #year = models.IntegerField(default=0)
     #sem = models.IntegerField(default=0)
-    date = models.DateField(auto_now_add=True)
+    #date = models.DateField(auto_now_add=True)
     from_time = models.TimeField()
     to_time = models.TimeField()
     room = models.ForeignKey(ClassRoom)
