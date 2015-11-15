@@ -6,7 +6,8 @@ from models import *
 from serializers import *
 from models import *
 import json
-
+import datetime
+from django.http import HttpResponseRedirect
 # Create your views here.
 # api for requirement 5
 
@@ -24,12 +25,11 @@ def adddefaultclasses(request):
             presentday = int(day[1])
             break
     defaultclasses = Schedule.objects.filter(course__year = presentyear,course__sem = presentsem,day = presentday)
-
     for defaultclass in defaultclasses:
         newclass = Conducted_Classes(course = defaultclass.course,from_time = defaultclass.from_time, to_time = defaultclass.to_time, date = str(datetime.datetime.now().date()), room = defaultclass.room, instructor = defaultclass.instructor)
         newclass.save()
 
-        return HttpResponseRedirect()
+    return HttpResponseRedirect('/')
 @api_view(['POST'])
 def changeconducted(request):
     """
