@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="attendancePortal">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="app/img/logo.jpg"/>
+    <meta name="description" content="{{app.description}}">
+
+    <title data-ng-bind="pageTitle()">Attendance Portal</title>
+
+    <!-- main template css files-->
+    <link rel="stylesheet" href="app/css/app.css">
+    <link rel="stylesheet" href="app/css/custom-style.css">
+
+    <!-- datetime css-->
+    <link rel="stylesheet" type="text/css" href="app/css/datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="app/css/datetimepicker.css">
+
+    <!-- sweet alert files-->
+    <script src="vendor/sweetalert-master/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/sweetalert-master/dist/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="vendor/ng-tags-input/ng-tags-input.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/ng-tags-input/ng-tags-input.bootstrap.min.css">
+
+</head>
+
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
+<div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+
+<!-- angular js core files -->
+<script src="app/js/angular-files/base.js"></script>
+
+<!-- main app file -->
+<script src="app/js/angular-files/app.js"></script>
+
+<!-- app states file-->
+<script src="app/js/angular-files/myApp.js"></script>
+
+<!-- constants file-->
+<script src="app/js/angular-files/constants.js"></script>
+
+<!-- all services file -->
+<script src="app/js/services/all-services.js"></script>
+
+<!-- vendor scripts -->
+<script src="vendor/bootstrap-datetimepicker/moment-with-locales.js"></script>
+<script src="vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script src="vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script src="vendor/ng-tags-input/ng-tags-input.min.js" charset="UTF-8"></script>
+
+<!-- state controllers -->
+<script src="app/js/controllers/login-ctrl.js"></script>
+<script src="app/js/controllers/dashboard-ctrl.js"></script>
+<script src="app/js/controllers/edit-class.js"></script>
+<script src="app/js/controllers/add-default-classes.js"></script>
+<script src="app/js/controllers/modify-previous-files.js"></script>
+<script src="app/js/controllers/view-attendance.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+[
+  {
+    "text": "Main Navigation",
+    "heading": "true"
+  },
+  {
+    "text": "Add Today's Scheduled Classes",
+    "sref": "app.adddefaultclasses",
+    "icon": "icon-grid"
+  },
+  {
+    "text": "Modify Today's Classes",
+    "sref": "app.dashboard",
+    "icon": "icon-note"
+  },
+  {
+    "text": "Modify Previous Classes",
+    "sref": "app.modifyPrevious",
+    "icon": "icon-map"
+  }
+]
