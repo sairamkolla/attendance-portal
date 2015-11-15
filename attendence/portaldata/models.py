@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 
 class Student(models.Model):
@@ -13,7 +13,7 @@ class Course(models.Model):
     sem = models.IntegerField(default = 0)
 
     def __unicode__(self):
-        return unicode(self.coursename)
+        return unicode(self.id)
 
 
 class Student_Courses(models.Model):
@@ -50,7 +50,7 @@ class Seating_Arrangement(models.Model):
 
 class Conducted_Classes(models.Model):
     course = models.ForeignKey(Course)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(default = datetime.datetime.now().date())
     from_time = models.TimeField()
     to_time = models.TimeField()
     room = models.ForeignKey(ClassRoom)
@@ -62,4 +62,6 @@ class Attendance(models.Model):
     student = models.ForeignKey(Student)
     is_absent = models.BooleanField(default=True)
 
+class defaults_added(models.Model):
+    date = models.DateField(auto_now=True)
 

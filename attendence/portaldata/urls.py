@@ -9,4 +9,6 @@ urlpatterns = patterns('',
                        url(r'^returnAllCourses/$','portaldata.views.returnAllCourses'),
                        url(r'adddefaultclasses/$','portaldata.views.adddefaultclasses'),
                        url(r'^returnConductedClassDetails/(?P<pk>[0-9]+)$','portaldata.views.returnConductedClassDetails'),
+                       url(r'^returnCoursesForStudent/(?P<studId>[0-9]+)$','portaldata.views.returnCoursesForStudent'),
+                       url(r'^updateClassDetails/$','portaldata.views.updateClassDetails'),
                        )

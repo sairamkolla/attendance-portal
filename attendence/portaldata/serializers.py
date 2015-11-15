@@ -7,7 +7,7 @@ class fetchConductedClasses(serializers.ModelSerializer):
     """
     class Meta:
         model = Conducted_Classes
-        fields = ('id','course','date', 'from_time', 'to_time', 'room', 'instructor')
+        fields = ('id','course','date', 'from_time', 'to_time', 'room', 'instructor','is_conducted')
 
 class fetchRooms(serializers.ModelSerializer):
     """
@@ -57,3 +57,11 @@ class fetchSchedule(serializers.ModelSerializer):
     class Meta:
         model = Schedule
         fields = ('id', 'course', 'data', 'from_time', 'to_time', 'room', 'day', 'instructor')
+
+class fetchCoursesForStudent(serializers.ModelSerializer):
+    """
+        fetches the list of courses for a student
+    """
+    class Meta:
+        model = Student_Courses
+        fields = ('id', 'course', 'student')
